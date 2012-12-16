@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <blockquote>{{ pname }}</blockquote>
+
+    {% for cat in cats %}
+      {% if cat.str1 %}
+        Category: <b>{{ cat.str1 }} ---<a href="/view?{{ cat.str2 }}">View</a>  ---  <a href="/add?{{ cat.str2 }}">Add an item </a> --- <a href="/result?{{ cat.str2 }}">Show Results</a>
+      </b></br>
+      {% else %}
+        No record.
+      {% endif %}
+        </br>
+    {% endfor %}
+     <a href="/createCat">New category</a></br></br>
+
+  </body>
+</html>
