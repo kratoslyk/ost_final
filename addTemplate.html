@@ -1,0 +1,18 @@
+<html>
+  <body>
+    Add an item to category:{{ cname }}</br>
+      Existing items:</br></br>
+      {% for item in items %}
+           {{ item }}</br>
+      {% endfor %}
+    </br>
+    <form action="/add?{{ url }}" method="post">
+      <div><input type="text" name="item"></div>
+      <div><input type="submit" value="Add"></div>
+    </form>
+    </br>
+    </br>
+    <a href="/">Back to home page</a>
+
+  </body>
+</html>

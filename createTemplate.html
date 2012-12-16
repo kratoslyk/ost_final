@@ -1,0 +1,22 @@
+<html>
+  <body>
+    Create a new category:</br></br>
+
+    <form action="/createCat" method="post">
+      <div><input type="text" name="catname"></div>
+      <div><input type="submit" value="Create"></div>
+    </form>
+
+
+    <form action="/import" method="post" enctype="multipart/form-data">
+      Import a category from an xml file:
+      <div><input type="file" name="catfile"></div>
+      <div><input type="submit" value="Import"></div>
+    </form>
+
+    </br>
+    </br>
+    <a href="/">Back to home page</a>
+
+  </body>
+</html>
