@@ -1,0 +1,19 @@
+<html>
+  <body>
+    Leave a comment for item in {{ cname }}</br>
+    </br>
+    <form action="/comment?{{ url }}" method="post">
+      {% for r in items %}
+        <input type="radio" name="choice" value="{{ r }}">{{ r }}</br>
+      {% endfor %}
+        <textarea name="comments" rows="5" cols="30"></textarea> 
+      <div><input type="submit" value="Submit"></div>
+    </form>
+      
+    
+    </br>
+    </br>
+    <a href="/">Back to home page</a>
+
+  </body>
+</html>

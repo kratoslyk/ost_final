@@ -16,6 +16,12 @@ class ErrorHandler(webapp.RequestHandler):
            msg='Error: Passing empty arguments to server.'
         elif qstr=='sameitem':
            msg='Error: Item exists.'
+        elif qstr=='noitem':
+           msg='Error: Item not found.'
+        elif qstr=='notowner':
+           msg='Error: You are not the owner.'
+        elif qstr=='hascomment':
+           msg='Error: You already have a comment on this item.'
         template_values = {'msg':msg}
         path = os.path.join(os.path.dirname(__file__), 'errorpage.html')
         self.response.out.write(template.render(path, template_values))

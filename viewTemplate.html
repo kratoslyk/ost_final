@@ -1,0 +1,14 @@
+<html>
+  <body>
+    Items in category: {{ cname }}</br>
+      </br>
+      {% for k in ps %}
+           {{ k.str1 }} ---  <a href="/vote?{{ k.str2 }}">Vote</a></br>
+      {% endfor %}
+
+    </br>
+    </br>
+    <a href="/">Back to home page</a>
+
+  </body>
+</html>

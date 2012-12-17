@@ -14,23 +14,23 @@ class MainPage(webapp.RequestHandler):
         user = users.get_current_user()
 
         if user:
-            self.response.headers['Content-Type'] = 'text/plain'
-            self.response.out.write('Hello, ' + user.nickname())
-        else:
-            #self.redirect(users.create_login_url(self.request.uri))
-            #self.redirect('/voting')
+            url=users.create_logout_url("/")
             cats = db.GqlQuery("SELECT * FROM Category")
-
             ps=[]
             for var in cats:
                p=pair.Pair(var.name,urllib.quote_plus(var.name))
                ps.append(p)
             template_values = {
             'pname': 'Voting System',
-            'cats': ps
+            'cats': ps,
+            'usr':user,
+            'logout':url
             }
             path = os.path.join(os.path.dirname(__file__), 'main.html')
             self.response.out.write(template.render(path, template_values))
+        else:
+            self.redirect(users.create_login_url(self.request.uri))
+            
 
 application = webapp.WSGIApplication(
                                      [('/', MainPage)],

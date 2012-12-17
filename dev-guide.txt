@@ -1,0 +1,41 @@
+Using python 2.7 + app engine api + git
+Using webapp framework
+
+
+In general, this application handles normal get/post requests using classes that inherit webapp.RequestHandler class. 
+
+Data are stored in data store. Using gql query for retrieving data from data store.
+
+app.yaml configues the application
+
+category.py
+category.py contains 3 data structure Category, Item and Comment.
+Category contains its name field and its creator field.
+Item contains its name, count and reference to its category object
+Comment contains its text, writer and reference to its
+
+create.py  url pattern: '/add?.*'  '/createCat'  '/import'
+class CreationHandler which inherits webapp.RequestHandler deals with creating category manually and rendering webpage with template createTemplate.html.
+class AddHandler deals with manually adding items to category.
+class UploadHandler deals with import an category from xml and parsing xml.
+
+view.py   url pattern: '/view?.*'  '/vote?.*'
+class ViewHandler randomly selects 2 items in that category and renders webpage with template viewTemplate.html.
+class VoteHandler deals with votes on items.
+
+result.py  url pattern: '/result?.*'
+class ResultHandler retrieves data from datastore and randers webpage with template resultTemplate.html.
+
+export.py  url pattern: '/export?.*'
+class ExportHandler retrieves category data and print it in xml format in webpage using template exportTemplate.html.
+
+comment.py  url pattern: '/comment?.*'
+class CommentHandler deals with user comments on some item and renders webpage with template commentTemplate.html
+
+error.py  url pattern: '/error?.*'
+class ErrorHandler shows error message on webpage. When an error happens in other scripts, they all redirect webpage to ErrorHandler with error msg to show error information.
+
+
+home.py   url pattern: '/'
+class MainPage in home.py deals with requests with url pattern '/', renders the home page with template main.html and shows the all the categories in system.
+

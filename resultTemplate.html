@@ -1,0 +1,18 @@
+<html>
+  <body>
+    Result for votes on category: {{ cname }}</br>
+      </br>
+      {% for p in ps %}
+           {{ p.str1 }} votes</br>
+           {{ p.str2 }}
+      {% endfor %}
+
+    </br>
+    <a href="/comment?{{ url }}">Leave a comment on {{ cname }}</a></br>
+    </br>
+    <a href="/export?{{ url }}">Export this category</a>
+    </br></br>
+    <a href="/">Back to home page</a>
+
+  </body>
+</html>

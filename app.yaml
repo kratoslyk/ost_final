@@ -1,0 +1,35 @@
+application: kratosost
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /add?.*
+  script: create.py
+
+- url: /comment?.*
+  script: comment.py
+
+- url: /export?.*
+  script: export.py
+
+- url: /createCat
+  script: create.py
+
+- url: /import
+  script: create.py
+
+- url: /error?.*
+  script: error.py
+
+- url: /view?.*
+  script: view.py
+
+- url: /vote?.*
+  script: view.py
+
+- url: /result?.*
+  script: result.py
+
+- url: /.*
+  script: home.py

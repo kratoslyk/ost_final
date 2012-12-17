@@ -1,11 +1,13 @@
 <html>
   <body>
-    Add an item to category:{{ cname }}</br>
+    </br>
       Existing items:</br></br>
-      {% for item in items %}
-           {{ item }}</br>
+      {% for p in pairs %}
+           {{ p.str1 }} </br>
       {% endfor %}
     </br>
+    </br>
+    Add an item to category: {{ cname }}</br>
     <form action="/add?{{ url }}" method="post">
       <div><input type="text" name="item"></div>
       <div><input type="submit" value="Add"></div>
